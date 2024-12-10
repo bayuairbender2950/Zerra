@@ -43,3 +43,4 @@ build/
 ### Config file ###
 *.yml
 *.log
+*.logs
