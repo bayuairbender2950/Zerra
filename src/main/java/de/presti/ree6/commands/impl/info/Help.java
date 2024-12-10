@@ -55,65 +55,56 @@ public class Help implements ICommand {
      * @param commandEvent   The command event.
      */
     public void sendHelpInformation(String categoryString, CommandEvent commandEvent) {
-        MessageCreateBuilder messageCreateBuilder = new MessageCreateBuilder();
+    MessageCreateBuilder messageCreateBuilder = new MessageCreateBuilder();
 
-        EmbedBuilder em = new EmbedBuilder();
+    EmbedBuilder em = new EmbedBuilder();
 
-        em.setColor(BotConfig.getMainColor());
-        em.setTitle("Help Center");
-        em.setThumbnail(commandEvent.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl());
-        em.setFooter(commandEvent.getGuild().getName() + " - " + BotConfig.getAdvertisement(), commandEvent.getGuild().getIconUrl());
+    em.setColor(BotConfig.getMainColor());
+    em.setTitle("Help Center");
+    em.setThumbnail(commandEvent.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl());
+    em.setFooter(commandEvent.getGuild().getName() + " - " + BotConfig.getAdvertisement(), commandEvent.getGuild().getIconUrl());
 
-        messageCreateBuilder
-                .addActionRow(
-                        Button.of(ButtonStyle.LINK, BotConfig.getInvite(), commandEvent.getResource("label.invite"),
-                                Emoji.fromCustom("re_icon_invite", 1019234807844175945L, false)),
-                        Button.of(ButtonStyle.LINK, BotConfig.getSupport(), commandEvent.getResource("label.support"),
-                                Emoji.fromCustom("re_icon_help", 1019234684745564170L, false)),
-                        Button.of(ButtonStyle.LINK, BotConfig.getGithub(), commandEvent.getResource("label.github"),
-                                Emoji.fromCustom("re_icon_github", 492259724079792138L, false)),
-                        Button.of(ButtonStyle.SECONDARY, "re_feedback", commandEvent.getResource("label.feedback"),
-                                Emoji.fromCustom("kiss", 1012765976951009361L, true))
-                );
+    // Removed the buttons section
+    messageCreateBuilder.addActionRow();
 
-        if (categoryString == null) {
+    if (categoryString == null) {
+        SQLSession.getSqlConnector().getSqlWorker().getSetting(commandEvent.getGuild().getIdLong(), "chatprefix").subscribe(setting -> {
+            for (Category cat : Category.values()) {
+                if (cat != Category.HIDDEN) {
+                    if (!BotConfig.isModuleActive(cat.name().toLowerCase())) continue;
+
+                    String formattedName = cat.name().toUpperCase().charAt(0) + cat.name().substring(1).toLowerCase();
+                    em.addField("**" + formattedName + "**", setting.get().getStringValue() + "help " + cat.name().toLowerCase(), true);
+                }
+            }
+
+            commandEvent.reply(messageCreateBuilder.setEmbeds(em.build()).build());
+        });
+    } else {
+        if (isValid(categoryString)) {
+            StringBuilder end = new StringBuilder();
+
+            Category category = getCategoryFromString(categoryString);
+
             SQLSession.getSqlConnector().getSqlWorker().getSetting(commandEvent.getGuild().getIdLong(), "chatprefix").subscribe(setting -> {
-                for (Category cat : Category.values()) {
-                    if (cat != Category.HIDDEN) {
-                        if (!BotConfig.isModuleActive(cat.name().toLowerCase())) continue;
-
-                        String formattedName = cat.name().toUpperCase().charAt(0) + cat.name().substring(1).toLowerCase();
-                        em.addField("**" + formattedName + "**", setting.get().getStringValue() + "help " + cat.name().toLowerCase(), true);
-                    }
+                for (ICommand cmd : Main.getInstance().getCommandManager().getCommands().stream().filter(command -> command.getClass().getAnnotation(Command.class).category() == category).toList()) {
+                    end.append("``")
+                        .append(setting.get().getStringValue())
+                        .append(cmd.getClass().getAnnotation(Command.class).name())
+                        .append("``\n")
+                        .append(commandEvent.getResource(cmd.getClass().getAnnotation(Command.class).description()))
+                        .append("\n\n");
                 }
 
+                em.setDescription(end.toString());
                 commandEvent.reply(messageCreateBuilder.setEmbeds(em.build()).build());
             });
         } else {
-            if (isValid(categoryString)) {
-                StringBuilder end = new StringBuilder();
-
-                Category category = getCategoryFromString(categoryString);
-
-                SQLSession.getSqlConnector().getSqlWorker().getSetting(commandEvent.getGuild().getIdLong(), "chatprefix").subscribe(setting -> {
-                    for (ICommand cmd : Main.getInstance().getCommandManager().getCommands().stream().filter(command -> command.getClass().getAnnotation(Command.class).category() == category).toList()) {
-                        end.append("``")
-                                .append(setting.get().getStringValue())
-                                .append(cmd.getClass().getAnnotation(Command.class).name())
-                                .append("``\n")
-                                .append(commandEvent.getResource(cmd.getClass().getAnnotation(Command.class).description()))
-                                .append("\n\n");
-                    }
-
-                    em.setDescription(end.toString());
-                    commandEvent.reply(messageCreateBuilder.setEmbeds(em.build()).build());
-                });
-            } else {
-                sendHelpInformation(null, commandEvent);
-            }
+            sendHelpInformation(null, commandEvent);
         }
-
     }
+}
+
 
     /**
      * @inheritDoc
