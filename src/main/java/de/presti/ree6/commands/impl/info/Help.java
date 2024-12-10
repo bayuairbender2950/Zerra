@@ -64,8 +64,7 @@ public class Help implements ICommand {
     em.setThumbnail(commandEvent.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl());
     em.setFooter(commandEvent.getGuild().getName() + " - " + BotConfig.getAdvertisement(), commandEvent.getGuild().getIconUrl());
 
-    // Removed the buttons section
-    messageCreateBuilder.addActionRow();
+    // Removed the addActionRow() entirely
 
     if (categoryString == null) {
         SQLSession.getSqlConnector().getSqlWorker().getSetting(commandEvent.getGuild().getIdLong(), "chatprefix").subscribe(setting -> {
@@ -104,6 +103,7 @@ public class Help implements ICommand {
         }
     }
 }
+
 
 
     /**
