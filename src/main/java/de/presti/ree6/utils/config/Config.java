@@ -122,7 +122,7 @@ public class Config {
                     .path("status").addDefault("Zerra | %guilds% Servers. (%shard%)").commentSide("The Status of the Bot.")
                     .parent().path("mainColor").addDefault("#c80292").commentSide("Color that should be used in various places.")
                     .parent().path("feedbackChannelId").addDefault(0L).commentSide("The Channel used for Feedback.")
-                    .parent().path("ownerId").addDefault(3215807434888314323).commentSide("The ID of the Bot Owner. Change this to yours!")
+                    .parent().path("ownerId").addDefault(1268587358882893831).commentSide("The ID of the Bot Owner. Change this to yours!")
                     .parent().path("predefineInformation").addDefault("""
                             You are Zerra a Discord bot.
                             """).commentSide("Predefined Information for the AI.")
