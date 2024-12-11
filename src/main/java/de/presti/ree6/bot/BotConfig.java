@@ -28,7 +28,7 @@ public class BotConfig {
      * @return the Discord Bot status from the config.
      */
     public static String getStatus() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.status", "ree6.de | %guilds% Servers. (%shard%)");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.status", "Zerra | %guilds% Servers. (%shard%)");
     }
 
     /**
@@ -36,7 +36,7 @@ public class BotConfig {
      * @return the Discord Bot Website from the config.
      */
     public static String getWebsite() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.website", "https://ree6.de");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.website", "https://discord.com");
     }
 
     /**
@@ -44,7 +44,7 @@ public class BotConfig {
      * @return the Github repository from the config.
      */
     public static String getGithub() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.github", "https://github.ree6.de");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.github", "https://discord.com");
     }
 
     /**
@@ -52,7 +52,7 @@ public class BotConfig {
      * @return the Discord Bot invite from the config.
      */
     public static String getInvite() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.invite", "https://invite.ree6.de");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.invite", "https://discord.com");
     }
 
     /**
@@ -60,7 +60,7 @@ public class BotConfig {
      * @return the Discord Bot support server from the config.
      */
     public static String getSupport() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.support", "https://support.ree6.de");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.support", "https://discord.com");
     }
 
     /**
@@ -76,7 +76,7 @@ public class BotConfig {
      * @return the Advertisement from the config.
      */
     public static String getAdvertisement() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.advertisement", "powered by Tube-Hosting");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.advertisement", "");
     }
 
     /**
@@ -84,7 +84,7 @@ public class BotConfig {
      * @return the Discord Bot owner from the config.
      */
     public static String getBotOwner() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.ownerId", "321580743488831490");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.ownerId");
     }
 
     /**
@@ -92,7 +92,7 @@ public class BotConfig {
      * @return the Discord Bot name from the config.
      */
     public static String getBotName() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.name", "Ree6");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.name", "Zerra");
     }
 
     /**
@@ -133,7 +133,7 @@ public class BotConfig {
      * @return the default language from the config.
      */
     public static String getDefaultLanguage() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.defaultLanguage", "en-GB");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.defaultLanguage", "id");
     }
 
     /**
@@ -141,7 +141,7 @@ public class BotConfig {
      * @return the Twitch Auth Url from the config.
      */
     public static String getTwitchAuth() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.twitchAuth", "https://cp.ree6.de/external/twitch");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.twitchAuth", "https://discord.com");
     }
 
     /**
@@ -149,7 +149,7 @@ public class BotConfig {
      * @return the Recording Url from the config.
      */
     public static String getRecordingUrl() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.recording", "https://cp.ree6.de/external/recording");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.recording", "https://discord.com");
     }
 
     /**
@@ -157,7 +157,7 @@ public class BotConfig {
      * @return the Webinterface Url from the config.
      */
     public static String getWebinterface() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.webinterface", "https://cp.ree6.de");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.webinterface", "https://discord.com");
     }
 
     /**
@@ -165,7 +165,7 @@ public class BotConfig {
      * @return the default prefix from the config.
      */
     public static String getDefaultPrefix() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.defaultPrefix", "ree!");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.defaultPrefix", "/");
     }
 
     /**
