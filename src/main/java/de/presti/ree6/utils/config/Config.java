@@ -69,8 +69,8 @@ public class Config {
             yamlTempFile.options().header("""
                     ################################
                     #                              #
-                    # Ree6 Temporal Info           #
-                    # by Presti                    #
+                    # Zerra Temporal Info           #
+                    # 				               #
                     #                              #
                     ################################
                     """);
@@ -89,7 +89,7 @@ public class Config {
             yamlFile.options().header("""
                     ################################
                     #                              #
-                    # Ree6 Config File             #
+                    # Zerra Config File             #
                     # by Presti                    #
                     #                              #
                     ################################
@@ -119,45 +119,45 @@ public class Config {
                     .parent().path("beta").addDefault("BetaTokenhere").commentSide("Token used when set to beta build.")
                     .parent().path("dev").addDefault("DevTokenhere").commentSide("Token used when set to dev build.")
                     .parent().parent().path("misc").comment("Configuration for the Bot itself.").blankLine()
-                    .path("status").addDefault("ree6.de | %guilds% Servers. (%shard%)").commentSide("The Status of the Bot.")
+                    .path("status").addDefault("Zerra | %guilds% Servers. (%shard%)").commentSide("The Status of the Bot.")
                     .parent().path("mainColor").addDefault("#c80292").commentSide("Color that should be used in various places.")
                     .parent().path("feedbackChannelId").addDefault(0L).commentSide("The Channel used for Feedback.")
-                    .parent().path("ownerId").addDefault(321580743488831490L).commentSide("The ID of the Bot Owner. Change this to yours!")
+                    .parent().path("ownerId").addDefault(3215807434888314323).commentSide("The ID of the Bot Owner. Change this to yours!")
                     .parent().path("predefineInformation").addDefault("""
-                            You are Ree6 a Discord bot.
+                            You are Zerra a Discord bot.
                             """).commentSide("Predefined Information for the AI.")
-                    .parent().path("invite").addDefault("https://invite.ree6.de").commentSide("The Invite Link of the Bot. (Can not be empty)")
-                    .parent().path("support").addDefault("https://support.ree6.de").commentSide("The Support Server Link of the Bot. (Can not be empty)")
-                    .parent().path("github").addDefault("https://github.ree6.de").commentSide("The GitHub Link of the Bot. (Can not be empty)")
-                    .parent().path("website").addDefault("https://ree6.de").commentSide("The Website Link of the Bot. (Can not be empty)")
-                    .parent().path("webinterface").addDefault("https://cp.ree6.de").commentSide("The Webinterface Link of the Bot. (Can not be empty)")
-                    .parent().path("recording").addDefault("https://cp.ree6.de/external/recording").commentSide("The Recording Link of the Bot.")
-                    .parent().path("twitchAuth").addDefault("https://cp.ree6.de/external/twitch").commentSide("The Twitch Authentication Link of the Bot.")
-                    .parent().path("advertisement").addDefault("powered by Ree6.de").commentSide("The Advertisement in Embed Footers and the rest.")
-                    .parent().path("name").addDefault("Ree6").commentSide("The Name of the Bot.")
+                    .parent().path("invite").addDefault("https://discord.com").commentSide("The Invite Link of the Bot. (Can not be empty)")
+                    .parent().path("support").addDefault("https://discord.com").commentSide("The Support Server Link of the Bot. (Can not be empty)")
+                    .parent().path("github").addDefault("https://discord.com").commentSide("The GitHub Link of the Bot. (Can not be empty)")
+                    .parent().path("website").addDefault("https://discord.com").commentSide("The Website Link of the Bot. (Can not be empty)")
+                    .parent().path("webinterface").addDefault("https://discord.com").commentSide("The Webinterface Link of the Bot. (Can not be empty)")
+                    .parent().path("recording").addDefault("https://discord.com").commentSide("The Recording Link of the Bot.")
+                    .parent().path("twitchAuth").addDefault("https://discord.com").commentSide("The Twitch Authentication Link of the Bot.")
+                    .parent().path("advertisement").addDefault("").commentSide("The Advertisement in Embed Footers and the rest.")
+                    .parent().path("name").addDefault("Zerra").commentSide("The Name of the Bot.")
                     .parent().path("shards").addDefault(1).commentSide("The shard amount of the Bot. Check out https://anidiots.guide/understanding/sharding/#sharding for more information.")
-                    .parent().path("defaultLanguage").addDefault("en-GB").commentSide("The default Language of the Bot. Based on https://discord.com/developers/docs/reference#locales")
+                    .parent().path("defaultLanguage").addDefault("id").commentSide("The default Language of the Bot. Based on https://discord.com/developers/docs/reference#locales")
                     .parent().path("allowRecordingInChat").addDefault(false).commentSide("If you want to allow users to let the Bot send their recording into the chat.")
                     .parent().path("hideModuleNotification").addDefault(false).commentSide("Should the Notification for disabled Modules be hidden?")
                     .parent().path("debug").addDefault(false).commentSide("Should the Bot be in Debug Mode? This will enable more logging.")
                     .parent().path("defaultPrefix").addDefault("ree!").commentSide("The default Prefix of the Bot.")
                     .parent().path("textFont").addDefault("Verdana").commentSide("The Font that is being used in Images for the Text.")
-                    .parent().path("leveling").comment("Customize the leveling module in Ree6.").blankLine()
+                    .parent().path("leveling").comment("Customize the leveling module in Zerra.").blankLine()
                     .path("resets").comment("""
-                            When should Ree6 stop the current progress of the user?
+                            When should Zerra stop the current progress of the user?
                             This means if someone mutes themselves, for example, they receive all the XP they would have gotten when they left that instant.
                             And when they unmute, again the XP gather restarts from 0. So they don't lose their progress, but don't get XP from being mute.""").blankLine()
                     .path("mute").addDefault(true).commentSide("Should an XP reset be triggered when a user mutes themselves?")
                     .parent().path("muteGlobal").addDefault(true).commentSide("Should an XP reset be triggered when a user gets muted on the Server?")
                     .parent().path("deafen").addDefault(true).commentSide("Should an XP reset be triggered when a user deafens themselves?")
                     .parent().path("deafenGlobal").addDefault(true).commentSide("Should an XP reset be triggered when a user gets deafened on the Server?")
-                    .parent().parent().parent().path("rankCard").comment("Customize the rank card in Ree6.").blankLine()
+                    .parent().parent().parent().path("rankCard").comment("Customize the rank card in Zerra.").blankLine()
                     .addDefault("textColor", "#FFFFFF").commentSide("The Color of the Text in the Rank Card.")
                     .addDefault("highlightColor", "#FF00FF").commentSide("The Color of the Highlights in the Rank Card. (Level and Rank)")
                     .addDefault("detailColor", "#C0C0C0").commentSide("The Color of the Details in the Rank Card. (XP and Discriminator)")
                     .addDefault("progressbarColor", "#FF00FF").commentSide("The Color of the Progressbar in the Rank Card.")
                     .addDefault("progressBarBackgroundColor", "#7C007C").commentSide("The Color of the Background of the Progressbar in the Rank Card.")
-                    .parent().path("modules").comment("Customize the active modules in Ree6.").blankLine()
+                    .parent().path("modules").comment("Customize the active modules in Zerra.").blankLine()
                     .path("moderation").addDefault(true).commentSide("Enable the moderation module.")
                     .parent().path("music").addDefault(true).commentSide("Enable the music module.")
                     .parent().path("fun").addDefault(true).commentSide("Enable the fun commands.")
